@@ -325,12 +325,12 @@ export default function PostsBody({
 										</td>
 										<td className={classes}>
 											<div className='flex flex-wrap gap-1 justify-center'>
-												{tags.map(({ label, color }, index) => (
+												{tags.map(({ name, color }, index) => (
 													<Chip
 														key={index}
 														variant='ghost'
 														size='sm'
-														value={label}
+														value={name}
 														color={color as colors}
 													/>
 												))}

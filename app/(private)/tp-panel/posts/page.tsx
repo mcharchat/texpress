@@ -134,7 +134,7 @@ export default function Page() {
 							.includes(inputElement.toLowerCase());
 					}) ||
 					row.tags.some((tag) => {
-						return tag.label.toLowerCase().includes(inputElement.toLowerCase());
+						return tag.name.toLowerCase().includes(inputElement.toLowerCase());
 					}) ||
 					row.comments.some((comment) => {
 						return comment.content

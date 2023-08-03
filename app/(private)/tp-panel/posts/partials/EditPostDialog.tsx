@@ -140,7 +140,7 @@ export default function EditPostDialog({
 		setTagOptions(
 			tags?.map((tag) => ({
 				id: tag.id,
-				label: tag.label,
+				label: tag.name,
 			}))
 		);
 	}, [tags]);

@@ -52,7 +52,7 @@ export async function GET(request: Request) {
 	const posts = await PostModel.find({})
 		.populate({ path: "author", select: "img name email" })
 		.populate({ path: "categories", select: "name" })
-		.populate({ path: "tags", select: "label color" })
+		.populate({ path: "tags", select: "name color" })
 		.populate({
 			path: "comments",
 			select: "content createdAt authorName authorEmail",
@@ -150,7 +150,7 @@ export async function POST(request: Request) {
 	const post = await PostModel.findById(createdPost._id)
 		.populate({ path: "author", select: "img name email" })
 		.populate({ path: "categories", select: "name" })
-		.populate({ path: "tags", select: "label color" })
+		.populate({ path: "tags", select: "name color" })
 		.populate({
 			path: "comments",
 			select: "content createdAt authorName authorEmail",

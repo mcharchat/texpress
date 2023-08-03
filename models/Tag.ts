@@ -13,7 +13,7 @@ import { Post } from "@/models/Post";
 })
 export class Tag {
 	@prop({ required: true })
-	label!: string;
+	name!: string;
 
 	@prop({ required: true })
 	color!: string;
