@@ -3,4 +3,6 @@ export default interface Tag {
 	id: string;
 	label: string;
 	color: string;
+	slug: string;
+	description: string;
 }

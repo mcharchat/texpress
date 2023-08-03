@@ -24,6 +24,12 @@ export class Tag {
 	@prop({ default: () => new Date(), required: true })
 	updatedAt?: Date;
 
+	@prop({ required: true })
+	slug!: string;
+
+	@prop()
+	description?: string;
+
 	@prop({
 		ref: () => Post,
 		localField: "_id",

@@ -21,6 +21,12 @@ export class Category {
 	@prop({ required: true })
 	name!: string;
 
+	@prop({ required: true })
+	slug!: string;
+
+	@prop()
+	description?: string;
+
 	@prop({
 		ref: () => Post,
 		localField: "_id",

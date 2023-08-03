@@ -7,6 +7,8 @@ export const categorySeeder = async (number) => {
 	for (let i = 0; i < number; i++) {
 		categories.push({
 			name: faker.lorem.word(),
+			slug: faker.lorem.slug(),
+			description: faker.lorem.paragraph(),
 		});
 	}
 

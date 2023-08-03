@@ -29,6 +29,8 @@ export const tagSeeder = async (number) => {
 		tags.push({
 			label: faker.lorem.word(),
 			color: allowedCollors[Math.floor(Math.random() * allowedCollors.length)],
+			slug: faker.lorem.slug(),
+			description: faker.lorem.paragraph(),
 		});
 	}
 
