@@ -24,6 +24,8 @@ import EditPostDialog from "./EditPostDialog";
 import CreatePostDialog from "./CreatePostDialog";
 import PopOverComment from "./PopOverComment";
 import CurrentUserContext from "@/lib/providers/CurrentUserContext";
+import Tag from "@/lib/types/Tag";
+import Category from "@/lib/types/Category";
 
 export default function PostsBody({
 	tableHead,
@@ -88,23 +90,13 @@ export default function PostsBody({
 	deletePost: (id: string | null, state: string) => void;
 	editPost: (postData: any) => void;
 	selectedPostId: string | null;
-	categories: {
-		_id: string;
-		id: string;
-		name: string;
-	}[];
-	tags: {
-		_id: string;
-		id: string;
-		label: string;
-		color: string;
-	}[];
+	categories: Category[];
+	tags: Tag[];
 	loading: boolean;
 	tabsValue: string;
 	stateColorDict: { [key: string]: string };
 }) {
 	const currentUser = useContext(CurrentUserContext);
-	console.log("filteredData", filteredData);
 	return (
 		<CardBody className='overflow-y-h_ide overflow-x-scroll custom-scroll custom-x-scroll px-0 py-5'>
 			<table className='mt-4 w-full min-w-max table-auto sm:table-fixed text-left'>
