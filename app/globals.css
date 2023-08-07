@@ -3,6 +3,10 @@
 @tailwind utilities;
 @import "wysiwyg.css";
 
+:root{
+  --toastify-z-index: 9999999 !important;
+}
+
 html, body {
   scroll-behavior: smooth;
   height: 100%;
