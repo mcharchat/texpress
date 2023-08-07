@@ -9,6 +9,7 @@ export const categorySeeder = async (number) => {
 			name: faker.lorem.word(),
 			slug: faker.lorem.slug(),
 			description: faker.lorem.paragraph(),
+			parent: null,
 		});
 	}
 

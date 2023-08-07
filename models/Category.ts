@@ -34,4 +34,7 @@ export class Category {
 		justOne: false,
 	})
 	public posts?: Ref<Post>[];
+
+	@prop({ ref: () => Category })
+	public parent?: this;
 }
