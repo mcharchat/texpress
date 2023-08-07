@@ -101,22 +101,27 @@ export async function POST(request: Request) {
 		);
 	}
 
-	// connect to database
-	await dbConnect();
-
 	// get category data from request body
-	const categoryData = await request.json();
+	const body = await request.json();
 
 	// check request body has required fields
 	const requiredFields = ["name", "slug"];
 	const requiredFieldsError = await validateRequestBodyRequiredFields(
-		categoryData,
+		body,
 		requiredFields
 	);
-	
+
 	if (requiredFieldsError) {
 		return requiredFieldsError;
 	}
+
+	// connect to database
+	await dbConnect();
+
+	const categoryData = {
+		...body,
+		parent: body?.parent?.id || null,
+	};
 
 	// create new category
 	const newCategory = await CategoryModel.create(categoryData);
