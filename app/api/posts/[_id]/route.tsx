@@ -63,10 +63,10 @@ export async function DELETE(
 
 	if (post.state === "trashed") {
 		// delete post
-		const deletedPost = await PostModel.findByIdAndDelete(_id);
+		await PostModel.findByIdAndDelete(_id);
 	} else {
 		// update post state to trashed
-		const trashedPost = await PostModel.findByIdAndUpdate(
+		await PostModel.findByIdAndUpdate(
 			_id,
 			{
 				state: "trashed",

@@ -222,6 +222,7 @@ export default function PostsBody({
 									state,
 									createdAt,
 									updatedAt,
+									slug,
 								},
 								index
 							) => {
@@ -340,7 +341,7 @@ export default function PostsBody({
 																<Typography
 																	variant='small'
 																	color='blue'
-																	className='font-normal'
+																	className='font-normal cursor-pointer'
 																>
 																	{comments?.length}
 																</Typography>
@@ -349,13 +350,7 @@ export default function PostsBody({
 													>
 														{comments?.map(
 															(
-																{
-																	content,
-																	createdAt,
-																	author,
-																	authorName,
-																	authorEmail,
-																},
+																{ content, createdAt, author, authorName },
 																index
 															) => {
 																return (
@@ -466,7 +461,7 @@ export default function PostsBody({
 													</IconButton>
 												</Tooltip>
 												<Tooltip content='View post'>
-													<Link href={`/posts/preview/${_id}`}>
+													<Link href={`/posts/${slug}`}>
 														<IconButton variant='text' color='blue-gray'>
 															<MagnifyingGlassIcon className='h-4 w-4' />
 														</IconButton>
