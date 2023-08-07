@@ -1,13 +1,20 @@
-import { TagModel } from "@/models";
-import { NextResponse } from "next/server";
 import dbConnect from "@/lib/dbConnect";
+import { validateRequestBodyJSON } from "@/lib/middlewares/validateRequestBodyJSON";
+import { validateRequestBodyRequiredFields } from "@/lib/middlewares/validateRequestBodyRequiredFields";
+import { validateRequestContentType } from "@/lib/middlewares/validateRequestContentType";
 import { validateXCSRFToken } from "@/lib/middlewares/validateXCSRFToken";
 import { checkValidJWT } from "@/lib/utils/JWT";
+import { TagModel } from "@/models";
 import { cookies } from "next/headers";
-import { validateRequestBodyRequiredFields } from "@/lib/middlewares/validateRequestBodyRequiredFields";
+import { NextResponse } from "next/server";
 
-// this function get all the tags
-export async function GET(request: Request) {
+// function for deleting a tag
+export async function DELETE(
+	request: Request,
+	{ params }: { params: { _id: string } }
+) {
+	const _id = params._id;
+
 	// check xcsrf token on request header
 	const xcsrfTokenError = await validateXCSRFToken(request);
 	if (xcsrfTokenError) {
@@ -45,23 +52,44 @@ export async function GET(request: Request) {
 	// connect to database
 	await dbConnect();
 
-	// get tags
-	const tags = await TagModel.find({}).populate({
-		path: "posts",
-		select: "title slug",
-	});
+	// find tag by id
+	const tag = await TagModel.findById(_id).populate("posts");
 
-	// return tags
-	return NextResponse.json(
-		{
-			tags,
-		},
-		{ status: 200 }
-	);
+	if (!tag) {
+		return NextResponse.json(
+			{
+				error: "Tag not found",
+			},
+			{ status: 404 }
+		);
+	}
+
+	// if tag has posts
+	if (tag.posts?.length > 0) {
+		return NextResponse.json(
+			{
+				error: "Tag has posts",
+			},
+			{ status: 400 }
+		);
+	}
+
+	// delete tag
+	await TagModel.findByIdAndDelete(_id);
+
+	// return ok
+	return NextResponse.json({
+		status: 200,
+	});
 }
 
-// this function create a new tag
-export async function POST(request: Request) {
+// route for editing a tag
+export async function PUT(
+	request: Request,
+	{ params }: { params: { _id: string } }
+) {
+	const _id = params._id;
+
 	// check xcsrf token on request header
 	const xcsrfTokenError = await validateXCSRFToken(request);
 	if (xcsrfTokenError) {
@@ -96,8 +124,22 @@ export async function POST(request: Request) {
 		);
 	}
 
-	// get tag data from request body
-	const body = await request.json();
+	// check request content type
+	const contentTypeError = await validateRequestContentType(request);
+	if (contentTypeError) {
+		return contentTypeError;
+	}
+
+	// check request body is JSON
+	const body = await validateRequestBodyJSON(request);
+	if (!body) {
+		return NextResponse.json(
+			{
+				error: "Invalid request. Please provide a valid JSON body",
+			},
+			{ status: 400 }
+		);
+	}
 
 	// check request body has required fields
 	const requiredFields = ["name", "slug", "color"];
@@ -113,13 +155,30 @@ export async function POST(request: Request) {
 	// connect to database
 	await dbConnect();
 
-	// create tag
-	const newTag = await TagModel.create(body);
+	// find tag by id
+	const tag = await TagModel.findById(_id);
 
-	// return tag
+	if (!tag) {
+		return NextResponse.json(
+			{
+				error: "Tag not found",
+			},
+			{ status: 404 }
+		);
+	}
+
+	// update tag
+	const updatedTag = await TagModel.findByIdAndUpdate(_id, body, {
+		new: true,
+	}).populate({
+		path: "posts",
+		select: "title slug",
+	});
+
+	// return updated tag
 	return NextResponse.json(
 		{
-			tag: newTag,
+			tag: updatedTag,
 		},
 		{ status: 200 }
 	);

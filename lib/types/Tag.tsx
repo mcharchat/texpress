@@ -5,4 +5,12 @@ export default interface Tag {
 	color: string;
 	slug: string;
 	description: string;
+	posts:
+		| {
+				_id: string;
+				id: string;
+				title: string;
+				slug: string;
+		  }[]
+		| null;
 }
