@@ -83,7 +83,8 @@ export default function Page() {
 				const shouldIncludeByInput =
 					row.name.toLowerCase().includes(inputElement.toLowerCase()) ||
 					row.slug.toLowerCase().includes(inputElement.toLowerCase()) ||
-					row.description.toLowerCase().includes(inputElement.toLowerCase());
+					row.description.toLowerCase().includes(inputElement.toLowerCase()) ||
+					row?.parent?.name.toLowerCase().includes(inputElement.toLowerCase());
 
 				return shouldIncludeByInput;
 			});
