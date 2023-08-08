@@ -14,7 +14,6 @@ export default function Page() {
 
 	const [tableHead, setTableHead] = useState<string[]>([
 		"Name",
-		"Color",
 		"Description",
 		"Slug",
 		"Count",
@@ -25,7 +24,6 @@ export default function Page() {
 		[key: string]: string;
 	} = {
 		Name: "name",
-		Color: "color",
 		Description: "description",
 		Slug: "slug",
 		Count: "posts",
@@ -83,8 +81,8 @@ export default function Page() {
 				const shouldIncludeByInput =
 					row.name.toLowerCase().includes(inputElement.toLowerCase()) ||
 					row.slug.toLowerCase().includes(inputElement.toLowerCase()) ||
-					row.description.toLowerCase().includes(inputElement.toLowerCase());
-
+					row.description.toLowerCase().includes(inputElement.toLowerCase()) ||
+					row.color.toLowerCase().includes(inputElement.toLowerCase());
 				return shouldIncludeByInput;
 			});
 			setTotalPages(Math.ceil(filteredData.length / 5));

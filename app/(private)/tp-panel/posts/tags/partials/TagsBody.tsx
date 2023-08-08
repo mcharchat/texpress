@@ -167,9 +167,6 @@ export default function TagsBody({
 								<td className='p-4'>
 									<Skeleton />
 								</td>
-								<td className='p-4'>
-									<Skeleton />
-								</td>
 							</tr>
 						))
 					) : filteredData.length === 0 ? (
@@ -207,21 +204,10 @@ export default function TagsBody({
 									>
 										<td className={classes}>
 											<div className='flex flex-col'>
-												<Typography
-													variant='small'
-													color='blue-gray'
-													className='font-normal'
-												>
-													{name}
-												</Typography>
-											</div>
-										</td>
-										<td className={classes}>
-											<div className='flex flex-col items-center'>
 												<Chip
 													variant='ghost'
 													size='sm'
-													value={color}
+													value={name}
 													color={color as colors}
 													className='w-max transition-all'
 												/>
