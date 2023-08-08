@@ -168,12 +168,16 @@ export default function EditCategoryDialog({
 						}}
 						arrow={false}
 					>
-						<Option value=''>No parent</Option>
-						{allCategories.map((category) => (
-							<Option key={category.id} value={category.id}>
-								{category.name}
-							</Option>
-						))}
+						{[
+							<Option key='0' value=''>
+								No parent
+							</Option>,
+							...allCategories.map((category) => (
+								<Option key={category.id} value={category.id}>
+									{category.name}
+								</Option>
+							)),
+						]}
 					</Select>
 					<div>
 						<Textarea
