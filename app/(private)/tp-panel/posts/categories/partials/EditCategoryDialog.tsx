@@ -172,7 +172,7 @@ export default function EditCategoryDialog({
 							<Option key='0' value=''>
 								No parent
 							</Option>,
-							...allCategories.map((category) => (
+							...allCategories.filter((category) => categoryData?._id !== category?._id).map((category) => (
 								<Option key={category.id} value={category.id}>
 									{category.name}
 								</Option>
