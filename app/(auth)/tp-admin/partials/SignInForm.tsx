@@ -108,6 +108,7 @@ function SignInForm({ setUser }: { setUser: (user: any) => void }) {
 				<Checkbox
 					label='Remember Me'
 					checked={rememberMe}
+					color='blue'
 					onChange={(e: ChangeEvent<HTMLInputElement>) =>
 						setRememberMe(e.target.checked)
 					}

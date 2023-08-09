@@ -270,6 +270,7 @@ export default function PostsBody({
 														src={author.img}
 														alt={author.name}
 														withBorder={true}
+														color='blue'
 														className='p-0.5'
 														size='sm'
 													/>
@@ -306,6 +307,7 @@ export default function PostsBody({
 														size='sm'
 														variant='outlined'
 														value={name}
+														color='blue'
 													/>
 												))}
 											</div>
@@ -435,7 +437,10 @@ export default function PostsBody({
 															});
 														}}
 													>
-														<Icon icon="heroicons:pencil-solid" className='h-4 w-4' />
+														<Icon
+															icon='heroicons:pencil-solid'
+															className='h-4 w-4'
+														/>
 													</IconButton>
 												</Tooltip>
 												<Tooltip
@@ -451,13 +456,19 @@ export default function PostsBody({
 															setopenDeletePostDialog({ open: true, state });
 														}}
 													>
-														<Icon icon="heroicons:trash-solid" className='h-4 w-4' />
+														<Icon
+															icon='heroicons:trash-solid'
+															className='h-4 w-4'
+														/>
 													</IconButton>
 												</Tooltip>
 												<Tooltip content='View post'>
 													<Link href={`/posts/${slug}`}>
 														<IconButton variant='text' color='blue-gray'>
-															<Icon icon="heroicons:magnifying-glass" className='h-4 w-4' />
+															<Icon
+																icon='heroicons:magnifying-glass'
+																className='h-4 w-4'
+															/>
 														</IconButton>
 													</Link>
 												</Tooltip>

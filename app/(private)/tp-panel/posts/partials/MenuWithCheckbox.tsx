@@ -81,6 +81,7 @@ const MenuWithCheckbox: React.FC<
 								<Checkbox
 									ripple={false}
 									id={option.id}
+									color='blue'
 									containerProps={{ className: "p-0" }}
 									className='hover:before:content-none'
 									checked={selectedOptions?.includes(option.id)}
