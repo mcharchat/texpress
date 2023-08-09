@@ -6,13 +6,6 @@ import {
 	Tooltip,
 	Typography,
 } from "@material-tailwind/react";
-import {
-	MagnifyingGlassIcon,
-	ChevronUpDownIcon,
-	ChevronUpIcon,
-	ChevronDownIcon,
-} from "@heroicons/react/24/outline";
-import { PencilIcon, TrashIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
 import { colors } from "@material-tailwind/react/types/generic";
 import TableRow from "@/lib/types/TableRow";
@@ -26,6 +19,7 @@ import PopOverComment from "./PopOverComment";
 import CurrentUserContext from "@/lib/providers/CurrentUserContext";
 import Tag from "@/lib/types/Tag";
 import Category from "@/lib/types/Category";
+import { Icon } from "@iconify/react";
 
 export default function PostsBody({
 	tableHead,
@@ -131,14 +125,14 @@ export default function PostsBody({
 												if (sortField === tableHeadDict[head]) {
 													if (sortDirection === "asc") {
 														return (
-															<ChevronUpIcon
+															<Icon icon="heroicons:chevron-up"
 																strokeWidth={2}
 																className='h-4 w-4'
 															/>
 														);
 													} else {
 														return (
-															<ChevronDownIcon
+															<Icon icon="heroicons:chevron-down"
 																strokeWidth={2}
 																className='h-4 w-4'
 															/>
@@ -146,7 +140,7 @@ export default function PostsBody({
 													}
 												} else {
 													return (
-														<ChevronUpDownIcon
+														<Icon icon="heroicons:chevron-up-down"
 															strokeWidth={2}
 															className='h-4 w-4'
 														/>
@@ -441,7 +435,7 @@ export default function PostsBody({
 															});
 														}}
 													>
-														<PencilIcon className='h-4 w-4' />
+														<Icon icon="heroicons:pencil-solid" className='h-4 w-4' />
 													</IconButton>
 												</Tooltip>
 												<Tooltip
@@ -457,13 +451,13 @@ export default function PostsBody({
 															setopenDeletePostDialog({ open: true, state });
 														}}
 													>
-														<TrashIcon className='h-4 w-4' />
+														<Icon icon="heroicons:trash-solid" className='h-4 w-4' />
 													</IconButton>
 												</Tooltip>
 												<Tooltip content='View post'>
 													<Link href={`/posts/${slug}`}>
 														<IconButton variant='text' color='blue-gray'>
-															<MagnifyingGlassIcon className='h-4 w-4' />
+															<Icon icon="heroicons:magnifying-glass" className='h-4 w-4' />
 														</IconButton>
 													</Link>
 												</Tooltip>

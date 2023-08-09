@@ -16,7 +16,6 @@ import {
 import MenuWithCheckbox from "./MenuWithCheckbox";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
-import { ArrowPathIcon } from "@heroicons/react/24/outline";
 import { Icon } from "@iconify/react";
 import { toast } from "react-toastify";
 import Tag from "@/lib/types/Tag";
@@ -403,7 +402,7 @@ export default function CreatePostDialog({
 									}}
 									disabled={generating.slug}
 								>
-									<ArrowPathIcon
+									<Icon icon="heroicons:arrow-path"
 										className={`h-3 w-3 transition-all hover:rotate-[720deg] ease-in-out duration-1000 ${
 											generating.slug ? "animate-spin" : ""
 										}`}

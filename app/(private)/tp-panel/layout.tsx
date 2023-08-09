@@ -1,7 +1,6 @@
 "use client";
 import { ReactNode, useEffect, useState } from "react";
 import { Drawer } from "@material-tailwind/react";
-import { Bars3Icon } from "@heroicons/react/24/solid";
 import MenuContent from "./partials/MenuContent";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -9,6 +8,7 @@ import { useRouter } from "next/navigation";
 import Transition from "@/app/Transition";
 import Cookies from "js-cookie";
 import CurrentUserContext from "@/lib/providers/CurrentUserContext";
+import { Icon } from "@iconify/react";
 
 export default function RootLayout({ children }: { children: ReactNode }) {
 	const [user, setUser] = useState();
@@ -98,7 +98,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 							>
 								<section className='sm:hidden'>
 									<nav className='h-[3rem] flex justify-between p-4 bg-gray-100'>
-										<Bars3Icon
+										<Icon icon="heroicons:bars-3-solid"
 											onClick={openTheDrawer}
 											className='h-5 w-5 cursor-pointer'
 										/>

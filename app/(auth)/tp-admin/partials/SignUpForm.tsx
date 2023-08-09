@@ -1,9 +1,8 @@
 import { Button, Checkbox, Input, Tooltip } from "@material-tailwind/react";
-import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/outline";
 import { ChangeEvent, FormEvent, useState } from "react";
 import { toast } from "react-toastify";
 import encryptTimestamp from "@/lib/utils/encryptTimestamp";
-import Cookies from "js-cookie";
+import { Icon } from "@iconify/react";
 
 function SignUpForm({ setUser }: { setUser: (user: any) => void }) {
 	const passwordRegex =
@@ -110,12 +109,12 @@ function SignUpForm({ setUser }: { setUser: (user: any) => void }) {
 					error={password !== "" && !passwordRegex.test(password)}
 					icon={
 						showPassword ? (
-							<EyeSlashIcon
+							<Icon icon="heroicons:eye-slash"
 								className='h-5 w-5 cursor-pointer'
 								onClick={() => setShowPassword(!showPassword)}
 							/>
 						) : (
-							<EyeIcon
+							<Icon icon="heroicons:eye"
 								className='h-5 w-5 cursor-pointer'
 								onClick={() => setShowPassword(!showPassword)}
 							/>
@@ -137,14 +136,14 @@ function SignUpForm({ setUser }: { setUser: (user: any) => void }) {
 				error={passwordConfirmation !== "" && passwordConfirmation !== password}
 				icon={
 					showPasswordConfirmation ? (
-						<EyeSlashIcon
+						<Icon icon="heroicons:eye-slash"
 							className='h-5 w-5 cursor-pointer'
 							onClick={() =>
 								setShowPasswordConfirmation(!showPasswordConfirmation)
 							}
 						/>
 					) : (
-						<EyeIcon
+						<Icon icon="heroicons:eye"
 							className='h-5 w-5 cursor-pointer'
 							onClick={() =>
 								setShowPasswordConfirmation(!showPasswordConfirmation)

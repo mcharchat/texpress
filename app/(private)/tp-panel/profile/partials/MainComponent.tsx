@@ -9,7 +9,6 @@ import {
 	Tooltip,
 	Typography,
 } from "@material-tailwind/react";
-import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/outline";
 import Transition from "@/app/Transition";
 import { ChangeEvent, useEffect, useState } from "react";
 import md5 from "md5";
@@ -18,6 +17,7 @@ import encryptTimestamp from "@/lib/utils/encryptTimestamp";
 import DeleteAccountDialog from "./DeleteAccountDialog";
 import Cookies from "js-cookie";
 import CropDialog from "./CropDialog";
+import { Icon } from "@iconify/react";
 
 export default function MainComponent({ profile }: { profile: string }) {
 	const profileObject = JSON.parse(profile);
@@ -306,12 +306,12 @@ export default function MainComponent({ profile }: { profile: string }) {
 										}
 										icon={
 											showPassword ? (
-												<EyeSlashIcon
+												<Icon icon="heroicons:eye-slash"
 													className='h-5 w-5 cursor-pointer'
 													onClick={() => setShowPassword(!showPassword)}
 												/>
 											) : (
-												<EyeIcon
+												<Icon icon="heroicons:eye"
 													className='h-5 w-5 cursor-pointer'
 													onClick={() => setShowPassword(!showPassword)}
 												/>
@@ -341,14 +341,14 @@ export default function MainComponent({ profile }: { profile: string }) {
 									}
 									icon={
 										showPasswordConfirmation ? (
-											<EyeSlashIcon
+											<Icon icon="heroicons:eye-slash"
 												className='h-5 w-5 cursor-pointer'
 												onClick={() =>
 													setShowPasswordConfirmation(!showPasswordConfirmation)
 												}
 											/>
 										) : (
-											<EyeIcon
+											<Icon icon="heroicons:eye"
 												className='h-5 w-5 cursor-pointer'
 												onClick={() =>
 													setShowPasswordConfirmation(!showPasswordConfirmation)

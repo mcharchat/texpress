@@ -14,10 +14,10 @@ import {
 	Tooltip,
 	Typography,
 } from "@material-tailwind/react";
-import { ArrowPathIcon } from "@heroicons/react/24/outline";
 import { toast } from "react-toastify";
 import Tag from "@/lib/types/Tag";
 import { colors } from "@material-tailwind/react/types/generic";
+import { Icon } from "@iconify/react";
 
 export default function CreateTagDialog({
 	openCreateTagDialog,
@@ -143,7 +143,7 @@ export default function CreateTagDialog({
 									}}
 									disabled={generating.slug}
 								>
-									<ArrowPathIcon
+									<Icon icon="heroicons:arrow-path"
 										className={`h-3 w-3 transition-all hover:rotate-[720deg] ease-in-out duration-1000 ${
 											generating.slug ? "animate-spin" : ""
 										}`}

@@ -15,10 +15,10 @@ import {
 	Typography,
 } from "@material-tailwind/react";
 import TableRow from "@/lib/types/Tag";
-import { ArrowPathIcon } from "@heroicons/react/24/outline";
 import { toast } from "react-toastify";
 import Tag from "@/lib/types/Tag";
 import { colors } from "@material-tailwind/react/types/generic";
+import { Icon } from "@iconify/react";
 
 export default function EditTagDialog({
 	openEditTagDialog,
@@ -146,7 +146,7 @@ export default function EditTagDialog({
 									}}
 									disabled={generating.slug}
 								>
-									<ArrowPathIcon
+									<Icon icon="heroicons:arrow-path"
 										className={`h-3 w-3 transition-all hover:rotate-[720deg] ease-in-out duration-1000 ${
 											generating.slug ? "animate-spin" : ""
 										}`}

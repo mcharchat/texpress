@@ -14,9 +14,9 @@ import {
 	Typography,
 } from "@material-tailwind/react";
 import TableRow from "@/lib/types/Category";
-import { ArrowPathIcon } from "@heroicons/react/24/outline";
 import { toast } from "react-toastify";
 import Category from "@/lib/types/Category";
+import { Icon } from "@iconify/react";
 
 export default function EditCategoryDialog({
 	openEditCategoryDialog,
@@ -144,7 +144,7 @@ export default function EditCategoryDialog({
 									}}
 									disabled={generating.slug}
 								>
-									<ArrowPathIcon
+									<Icon icon="heroicons:arrow-path"
 										className={`h-3 w-3 transition-all hover:rotate-[720deg] ease-in-out duration-1000 ${
 											generating.slug ? "animate-spin" : ""
 										}`}

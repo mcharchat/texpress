@@ -2,37 +2,17 @@ import {
 	Accordion,
 	AccordionBody,
 	AccordionHeader,
-	Chip,
 	List,
 	ListItem,
 	ListItemPrefix,
-	ListItemSuffix,
 	Typography,
 } from "@material-tailwind/react";
-import {
-	PresentationChartBarIcon,
-	ShoppingBagIcon,
-	UserCircleIcon,
-	Cog6ToothIcon,
-	InboxIcon,
-	PowerIcon,
-	RectangleStackIcon,
-	DocumentIcon,
-	UserIcon,
-	ChatBubbleBottomCenterIcon,
-	PhotoIcon,
-	PaintBrushIcon,
-} from "@heroicons/react/24/solid";
-import {
-	ChevronRightIcon,
-	ChevronDownIcon,
-	ChevronDoubleLeftIcon,
-} from "@heroicons/react/24/outline";
 import Image from "next/image";
 import TexPress from "@/app/pictures/svg/TexPress.svg";
 import React, { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { Icon } from "@iconify/react";
 
 interface MenuContentProps {
 	hasMinifier: boolean;
@@ -47,87 +27,89 @@ interface MenuContentProps {
 const menuItems = [
 	{
 		title: "Dashboard",
-		icon: <PresentationChartBarIcon className='h-5 w-5' />,
+		icon: (
+			<Icon icon='heroicons:presentation-chart-bar-solid' className='h-5 w-5' />
+		),
 		link: "/tp-panel",
 	},
 	{
 		title: "Posts",
-		icon: <RectangleStackIcon className='h-5 w-5' />,
+		icon: <Icon icon='heroicons:rectangle-stack-solid' className='h-5 w-5' />,
 		children: [
 			{
 				title: "All Posts",
-				icon: <ChevronRightIcon className='h-5 w-5' />,
+				icon: <Icon icon="heroicons:chevron-right" className='h-5 w-5' />,
 				link: "/tp-panel/posts",
 			},
 			{
 				title: "Comments",
-				icon: <ChevronRightIcon className='h-5 w-5' />,
+				icon: <Icon icon="heroicons:chevron-right" className='h-5 w-5' />,
 				link: "/tp-panel/posts/comments",
 			},
 			{
 				title: "Categories",
-				icon: <ChevronRightIcon className='h-5 w-5' />,
+				icon: <Icon icon="heroicons:chevron-right" className='h-5 w-5' />,
 				link: "/tp-panel/posts/categories",
 			},
 			{
 				title: "Tags",
-				icon: <ChevronRightIcon className='h-5 w-5' />,
+				icon: <Icon icon="heroicons:chevron-right" className='h-5 w-5' />,
 				link: "/tp-panel/posts/tags",
 			},
 		],
 	},
 	{
 		title: "Media",
-		icon: <PhotoIcon className='h-5 w-5' />,
+		icon: <Icon icon='heroicons:photo-solid' className='h-5 w-5' />,
 		children: [
 			{
 				title: "Library",
-				icon: <ChevronRightIcon className='h-5 w-5' />,
+				icon: <Icon icon="heroicons:chevron-right" className='h-5 w-5' />,
 				link: "/tp-panel/media",
 			},
 		],
 	},
 	{
 		title: "Pages",
-		icon: <DocumentIcon className='h-5 w-5' />,
+		icon: <Icon icon='heroicons:document-solid' className='h-5 w-5' />,
 		children: [
 			{
 				title: "All Pages",
-				icon: <ChevronRightIcon className='h-5 w-5' />,
+				icon: <Icon icon="heroicons:chevron-right" className='h-5 w-5' />,
 				link: "/tp-panel/pages",
 			},
 		],
 	},
 	{
 		title: "Appearance",
-		icon: <PaintBrushIcon className='h-5 w-5' />,
+		icon: <Icon icon='heroicons:paint-brush-solid' className='h-5 w-5' />,
 		children: [
 			{
 				title: "Themes",
-				icon: <ChevronRightIcon className='h-5 w-5' />,
+				icon: <Icon icon="heroicons:chevron-right" className='h-5 w-5' />,
 				link: "/tp-panel/appearance/themes",
 			},
 		],
 	},
 	{
 		title: "Users",
-		icon: <UserIcon className='h-5 w-5' />,
+		icon: <Icon icon='heroicons:user-solid' className='h-5 w-5' />,
 		children: [
 			{
 				title: "All Users",
-				icon: <ChevronRightIcon className='h-5 w-5' />,
+				icon: <Icon icon="heroicons:chevron-right" className='h-5 w-5' />,
 				link: "/tp-panel/users",
 			},
 		],
 	},
 	{
 		title: "Profile",
-		icon: <UserCircleIcon className='h-5 w-5' />,
+		icon: <Icon icon='heroicons:user-circle-solid' className='h-5 w-5' />,
 		link: "/tp-panel/profile",
 	},
 	{
 		title: "Settings",
-		icon: <Cog6ToothIcon className='h-5 w-5' />,
+		icon: <Icon icon='heroicons:cog-6-tooth-solid' className='h-5 w-5' />,
 		link: "/tp-panel/settings",
 	},
 ];
@@ -151,11 +133,12 @@ export default function MenuContent({
 
 	return (
 		<>
-			<div className='bg-gray-100 sticky -top-8 pt-4' style={
-				{
+			<div
+				className='bg-gray-100 sticky -top-8 pt-4'
+				style={{
 					zIndex: 100,
-				}
-			}>
+				}}
+			>
 				<Link
 					href={"/tp-panel"}
 					className='mb-2 flex flex-col items-center gap-2 p-2'
@@ -194,7 +177,7 @@ export default function MenuContent({
 							key={index}
 							open={openCollapsible === index}
 							icon={
-								<ChevronDownIcon
+								<Icon icon="heroicons:chevron-down"
 									strokeWidth={2.5}
 									className={`mx-auto h-4 w-4 transition-transform ${
 										openCollapsible === index ? "rotate-180" : ""
@@ -274,7 +257,7 @@ export default function MenuContent({
 					}}
 				>
 					<ListItemPrefix>
-						<PowerIcon className='h-5 w-5' />
+						<Icon icon='heroicons:power-solid' className='h-5 w-5' />
 					</ListItemPrefix>
 					<Typography
 						color='blue-gray'
@@ -288,7 +271,7 @@ export default function MenuContent({
 					<ListItem onClick={handleMinify}>
 						<div className='flex items-center'>
 							<ListItemPrefix className='aqui my-1'>
-								<ChevronDoubleLeftIcon
+								<Icon icon="heroicons:chevron-double-left"
 									strokeWidth={3}
 									className='h-5 w-5 transition-all'
 									style={{

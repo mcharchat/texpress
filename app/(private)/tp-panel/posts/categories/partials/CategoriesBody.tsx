@@ -4,22 +4,16 @@ import {
 	Tooltip,
 	Typography,
 } from "@material-tailwind/react";
-import {
-	MagnifyingGlassIcon,
-	ChevronUpDownIcon,
-	ChevronUpIcon,
-	ChevronDownIcon,
-} from "@heroicons/react/24/outline";
-import { PencilIcon, TrashIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
 import TableRow from "@/lib/types/Category";
-import { Dispatch, SetStateAction, useContext } from "react";
+import { Dispatch, SetStateAction } from "react";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import DeleteCategoryDialog from "./DeleteCategoryDialog";
 import EditCategoryDialog from "./EditCategoryDialog";
 import CreateCategoryDialog from "./CreateCategoryDialog";
 import PopOverPosts from "./PopOverPosts";
+import { Icon } from "@iconify/react";
 
 export default function CategoriesBody({
 	tableHead,
@@ -116,14 +110,14 @@ export default function CategoriesBody({
 												if (sortField === tableHeadDict[head]) {
 													if (sortDirection === "asc") {
 														return (
-															<ChevronUpIcon
+															<Icon icon="heroicons:chevron-up"
 																strokeWidth={2}
 																className='h-4 w-4'
 															/>
 														);
 													} else {
 														return (
-															<ChevronDownIcon
+															<Icon icon="heroicons:chevron-down"
 																strokeWidth={2}
 																className='h-4 w-4'
 															/>
@@ -131,7 +125,7 @@ export default function CategoriesBody({
 													}
 												} else {
 													return (
-														<ChevronUpDownIcon
+														<Icon icon="heroicons:chevron-up-down"
 															strokeWidth={2}
 															className='h-4 w-4'
 														/>
@@ -306,7 +300,7 @@ export default function CategoriesBody({
 															});
 														}}
 													>
-														<PencilIcon className='h-4 w-4' />
+														<Icon icon="heroicons:pencil-solid" className='h-4 w-4' />
 													</IconButton>
 												</Tooltip>
 												<Tooltip content='Delete category'>
@@ -320,13 +314,13 @@ export default function CategoriesBody({
 															});
 														}}
 													>
-														<TrashIcon className='h-4 w-4' />
+														<Icon icon="heroicons:trash-solid" className='h-4 w-4' />
 													</IconButton>
 												</Tooltip>
 												<Tooltip content='View category'>
 													<Link href={`/categories/${slug}`}>
 														<IconButton variant='text' color='blue-gray'>
-															<MagnifyingGlassIcon className='h-4 w-4' />
+															<Icon icon="heroicons:magnifying-glass" className='h-4 w-4' />
 														</IconButton>
 													</Link>
 												</Tooltip>

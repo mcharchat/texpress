@@ -8,9 +8,8 @@ import {
 	TabsHeader,
 	Typography,
 } from "@material-tailwind/react";
-import { XMarkIcon } from "@heroicons/react/24/outline";
-import { PlusIcon } from "@heroicons/react/24/solid";
 import { Dispatch, RefObject, SetStateAction } from "react";
+import { Icon } from "@iconify/react";
 
 export default function PostsHeader({
 	setInputElement,
@@ -78,7 +77,7 @@ export default function PostsHeader({
 						}}
 						disabled={loading}
 					>
-						<PlusIcon strokeWidth={2} className='h-4 w-4' /> Add new
+						<Icon icon="heroicons:plus-solid" strokeWidth={2} className='h-4 w-4' /> Add new
 					</Button>
 				</div>
 			</div>
@@ -119,7 +118,7 @@ export default function PostsHeader({
 											setInputElement("");
 										}}
 									>
-										<XMarkIcon className='h-3 w-3' />
+										<Icon icon='heroicons:x-mark' className='h-3 w-3' />
 									</IconButton>
 								</>
 							)

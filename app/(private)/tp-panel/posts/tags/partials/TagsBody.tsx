@@ -5,16 +5,9 @@ import {
 	Chip,
 	Typography,
 } from "@material-tailwind/react";
-import {
-	MagnifyingGlassIcon,
-	ChevronUpDownIcon,
-	ChevronUpIcon,
-	ChevronDownIcon,
-} from "@heroicons/react/24/outline";
-import { PencilIcon, TrashIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
 import TableRow from "@/lib/types/Tag";
-import { Dispatch, SetStateAction, useContext } from "react";
+import { Dispatch, SetStateAction } from "react";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import DeleteTagDialog from "./DeleteTagDialog";
@@ -22,6 +15,7 @@ import EditTagDialog from "./EditTagDialog";
 import CreateTagDialog from "./CreateTagDialog";
 import PopOverPosts from "./PopOverPosts";
 import { colors } from "@material-tailwind/react/types/generic";
+import { Icon } from "@iconify/react";
 
 export default function TagsBody({
 	tableHead,
@@ -118,14 +112,14 @@ export default function TagsBody({
 												if (sortField === tableHeadDict[head]) {
 													if (sortDirection === "asc") {
 														return (
-															<ChevronUpIcon
+															<Icon icon="heroicons:chevron-up"
 																strokeWidth={2}
 																className='h-4 w-4'
 															/>
 														);
 													} else {
 														return (
-															<ChevronDownIcon
+															<Icon icon="heroicons:chevron-down"
 																strokeWidth={2}
 																className='h-4 w-4'
 															/>
@@ -133,7 +127,7 @@ export default function TagsBody({
 													}
 												} else {
 													return (
-														<ChevronUpDownIcon
+														<Icon icon="heroicons:chevron-up-down"
 															strokeWidth={2}
 															className='h-4 w-4'
 														/>
@@ -294,7 +288,7 @@ export default function TagsBody({
 															});
 														}}
 													>
-														<PencilIcon className='h-4 w-4' />
+														<Icon icon="heroicons:pencil-solid" className='h-4 w-4' />
 													</IconButton>
 												</Tooltip>
 												<Tooltip content='Delete tag'>
@@ -308,13 +302,13 @@ export default function TagsBody({
 															});
 														}}
 													>
-														<TrashIcon className='h-4 w-4' />
+														<Icon icon="heroicons:trash-solid" className='h-4 w-4' />
 													</IconButton>
 												</Tooltip>
 												<Tooltip content='View tag'>
 													<Link href={`/tags/${slug}`}>
 														<IconButton variant='text' color='blue-gray'>
-															<MagnifyingGlassIcon className='h-4 w-4' />
+															<Icon icon="heroicons:magnifying-glass" className='h-4 w-4' />
 														</IconButton>
 													</Link>
 												</Tooltip>
