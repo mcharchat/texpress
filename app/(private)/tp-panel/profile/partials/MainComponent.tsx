@@ -270,7 +270,7 @@ export default function MainComponent({ profile }: { profile: string }) {
 									success={persDetForm.bioInfo !== ""}
 								></Textarea>
 							</div>
-							<div className='flex justify-start gap-3'>
+							<div className='flex justify-center gap-3'>
 								<Button variant='gradient' onClick={updatePersDet}>
 									Update
 								</Button>
@@ -358,7 +358,7 @@ export default function MainComponent({ profile }: { profile: string }) {
 									}
 								></Input>
 							</div>
-							<div className='flex justify-start gap-3'>
+							<div className='flex justify-center gap-3'>
 								<Button variant='gradient' onClick={updatePass}>
 									Update
 								</Button>
@@ -370,7 +370,7 @@ export default function MainComponent({ profile }: { profile: string }) {
 							<Typography variant='h4' color='gray'>
 								Delete Account
 							</Typography>
-							<div className='flex items-end grow'>
+							<div className='flex items-end justify-center grow'>
 								<Button
 									color='red'
 									variant='gradient'
