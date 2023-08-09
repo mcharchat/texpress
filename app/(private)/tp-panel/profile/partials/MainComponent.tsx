@@ -17,6 +17,7 @@ import { toast } from "react-toastify";
 import encryptTimestamp from "@/lib/utils/encryptTimestamp";
 import DeleteAccountDialog from "./DeleteAccountDialog";
 import Cookies from "js-cookie";
+import CropDialog from "./CropDialog";
 
 export default function MainComponent({ profile }: { profile: string }) {
 	const profileObject = JSON.parse(profile);
@@ -31,6 +32,7 @@ export default function MainComponent({ profile }: { profile: string }) {
 	});
 	const [firstImg, setFirstImg] = useState<string>(profileObject.img);
 	const [img, setImg] = useState<string>(profileObject.img);
+	const [cropImg, setCropImg] = useState<string>("");
 	const [passForm, setPassForm] = useState<{
 		password: string;
 		passwordConfirmation: string;
@@ -48,6 +50,8 @@ export default function MainComponent({ profile }: { profile: string }) {
 	const handleopenDeleteAccountDialog = () =>
 		setopenDeleteAccountDialog(!openDeleteAccountDialog);
 
+	const [openCropDialog, setOpenCropDialog] = useState<boolean>(false);
+
 	const emailRegex = /\S+@\S+\.\S+/;
 	const passwordRegex =
 		/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]{8,}$/;
@@ -58,7 +62,8 @@ export default function MainComponent({ profile }: { profile: string }) {
 		const file = e.target.files[0];
 		const reader = new FileReader();
 		reader.onloadend = () => {
-			setImg(reader.result as string);
+			setCropImg(reader.result as string);
+			setOpenCropDialog(true);
 		};
 		reader.readAsDataURL(file);
 	};
@@ -383,6 +388,12 @@ export default function MainComponent({ profile }: { profile: string }) {
 				handleopenDeleteAccountDialog={handleopenDeleteAccountDialog}
 				deleteAccount={deleteAccount}
 			/>
+			<CropDialog
+				img={cropImg}
+				setImg={setImg}
+				openCropDialog={openCropDialog}
+				setOpenCropDialog={setOpenCropDialog}
+			></CropDialog>
 		</Transition>
 	);
 }
