@@ -41,7 +41,7 @@ export default function PostsHeader({
 		<CardHeader
 			floated={false}
 			shadow={false}
-			className='bg-transparent rounded-none overflow-y-scroll custom-scroll custom-y-scroll'
+			className='bg-transparent rounded-none'
 		>
 			<div className='mb-8 flex items-center justify-between gap-8'>
 				<div>
