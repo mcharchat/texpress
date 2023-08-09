@@ -89,7 +89,8 @@ function SignInForm({ setUser }: { setUser: (user: any) => void }) {
 					error={password !== "" && !passwordRegex.test(password)}
 					icon={
 						showPassword ? (
-							<Icon icon="heroicons:eye-slash"
+							<Icon
+								icon='heroicons:eye-slash'
 								className='h-5 w-5 cursor-pointer'
 								onClick={() => setShowPassword(!showPassword)}
 							/>
@@ -112,7 +113,7 @@ function SignInForm({ setUser }: { setUser: (user: any) => void }) {
 					}
 				/>
 			</div>
-			<Button variant='gradient' fullWidth type='submit'>
+			<Button color='blue' variant='gradient' fullWidth type='submit'>
 				Sign In
 			</Button>
 		</form>

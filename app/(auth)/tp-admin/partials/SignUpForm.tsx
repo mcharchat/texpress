@@ -109,12 +109,14 @@ function SignUpForm({ setUser }: { setUser: (user: any) => void }) {
 					error={password !== "" && !passwordRegex.test(password)}
 					icon={
 						showPassword ? (
-							<Icon icon="heroicons:eye-slash"
+							<Icon
+								icon='heroicons:eye-slash'
 								className='h-5 w-5 cursor-pointer'
 								onClick={() => setShowPassword(!showPassword)}
 							/>
 						) : (
-							<Icon icon="heroicons:eye"
+							<Icon
+								icon='heroicons:eye'
 								className='h-5 w-5 cursor-pointer'
 								onClick={() => setShowPassword(!showPassword)}
 							/>
@@ -136,14 +138,16 @@ function SignUpForm({ setUser }: { setUser: (user: any) => void }) {
 				error={passwordConfirmation !== "" && passwordConfirmation !== password}
 				icon={
 					showPasswordConfirmation ? (
-						<Icon icon="heroicons:eye-slash"
+						<Icon
+							icon='heroicons:eye-slash'
 							className='h-5 w-5 cursor-pointer'
 							onClick={() =>
 								setShowPasswordConfirmation(!showPasswordConfirmation)
 							}
 						/>
 					) : (
-						<Icon icon="heroicons:eye"
+						<Icon
+							icon='heroicons:eye'
 							className='h-5 w-5 cursor-pointer'
 							onClick={() =>
 								setShowPasswordConfirmation(!showPasswordConfirmation)
@@ -161,7 +165,7 @@ function SignUpForm({ setUser }: { setUser: (user: any) => void }) {
 					}
 				/>
 			</div>
-			<Button variant='gradient' fullWidth type='submit'>
+			<Button color='blue' variant='gradient' fullWidth type='submit'>
 				Sign up
 			</Button>
 		</form>

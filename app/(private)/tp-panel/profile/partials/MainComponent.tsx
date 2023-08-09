@@ -271,7 +271,11 @@ export default function MainComponent({ profile }: { profile: string }) {
 								></Textarea>
 							</div>
 							<div className='flex justify-center gap-3'>
-								<Button variant='gradient' onClick={updatePersDet}>
+								<Button
+									color='green'
+									variant='gradient'
+									onClick={updatePersDet}
+								>
 									Update
 								</Button>
 							</div>
@@ -306,12 +310,14 @@ export default function MainComponent({ profile }: { profile: string }) {
 										}
 										icon={
 											showPassword ? (
-												<Icon icon="heroicons:eye-slash"
+												<Icon
+													icon='heroicons:eye-slash'
 													className='h-5 w-5 cursor-pointer'
 													onClick={() => setShowPassword(!showPassword)}
 												/>
 											) : (
-												<Icon icon="heroicons:eye"
+												<Icon
+													icon='heroicons:eye'
 													className='h-5 w-5 cursor-pointer'
 													onClick={() => setShowPassword(!showPassword)}
 												/>
@@ -341,14 +347,16 @@ export default function MainComponent({ profile }: { profile: string }) {
 									}
 									icon={
 										showPasswordConfirmation ? (
-											<Icon icon="heroicons:eye-slash"
+											<Icon
+												icon='heroicons:eye-slash'
 												className='h-5 w-5 cursor-pointer'
 												onClick={() =>
 													setShowPasswordConfirmation(!showPasswordConfirmation)
 												}
 											/>
 										) : (
-											<Icon icon="heroicons:eye"
+											<Icon
+												icon='heroicons:eye'
 												className='h-5 w-5 cursor-pointer'
 												onClick={() =>
 													setShowPasswordConfirmation(!showPasswordConfirmation)
@@ -359,7 +367,7 @@ export default function MainComponent({ profile }: { profile: string }) {
 								></Input>
 							</div>
 							<div className='flex justify-center gap-3'>
-								<Button variant='gradient' onClick={updatePass}>
+								<Button color='green' variant='gradient' onClick={updatePass}>
 									Update
 								</Button>
 							</div>

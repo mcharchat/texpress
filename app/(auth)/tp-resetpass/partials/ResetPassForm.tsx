@@ -53,7 +53,7 @@ function ResetPassForm({}) {
 				success={email !== "" && emailRegex.test(email)}
 				error={email !== "" && !emailRegex.test(email)}
 			></Input>
-			<Button variant='gradient' fullWidth type='submit'>
+			<Button color='blue' variant='gradient' fullWidth type='submit'>
 				Send reset Email
 			</Button>
 		</form>

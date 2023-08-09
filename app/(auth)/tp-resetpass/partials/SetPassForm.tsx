@@ -83,12 +83,14 @@ function SetPassForm() {
 					error={password !== "" && !passwordRegex.test(password)}
 					icon={
 						showPassword ? (
-							<Icon icon="heroicons:eye-slash"
+							<Icon
+								icon='heroicons:eye-slash'
 								className='h-5 w-5 cursor-pointer'
 								onClick={() => setShowPassword(!showPassword)}
 							/>
 						) : (
-							<Icon icon="heroicons:eye"
+							<Icon
+								icon='heroicons:eye'
 								className='h-5 w-5 cursor-pointer'
 								onClick={() => setShowPassword(!showPassword)}
 							/>
@@ -110,14 +112,16 @@ function SetPassForm() {
 				error={passwordConfirmation !== "" && passwordConfirmation !== password}
 				icon={
 					showPasswordConfirmation ? (
-						<Icon icon="heroicons:eye-slash"
+						<Icon
+							icon='heroicons:eye-slash'
 							className='h-5 w-5 cursor-pointer'
 							onClick={() =>
 								setShowPasswordConfirmation(!showPasswordConfirmation)
 							}
 						/>
 					) : (
-						<Icon icon="heroicons:eye"
+						<Icon
+							icon='heroicons:eye'
 							className='h-5 w-5 cursor-pointer'
 							onClick={() =>
 								setShowPasswordConfirmation(!showPasswordConfirmation)
@@ -126,7 +130,7 @@ function SetPassForm() {
 					)
 				}
 			></Input>
-			<Button variant='gradient' fullWidth type='submit'>
+			<Button color='blue' variant='gradient' fullWidth type='submit'>
 				Reset Password
 			</Button>
 		</form>
