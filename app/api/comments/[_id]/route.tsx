@@ -74,6 +74,20 @@ export async function DELETE(
 	}
 
 	if (comment.state === "trashed") {
+		// check if this comment is parent
+		const isParent = await CommentModel.findOne({
+			parent: params._id,
+		});
+
+		if (isParent) {
+			return NextResponse.json(
+				{
+					error: "Comment is parent. Cannot delete parent comment",
+				},
+				{ status: 403 }
+			);
+		}
+
 		// delete comment
 		await CommentModel.findByIdAndDelete(_id);
 	} else {
