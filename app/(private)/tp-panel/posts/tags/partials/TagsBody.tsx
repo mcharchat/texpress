@@ -165,7 +165,7 @@ export default function TagsBody({
 						))
 					) : filteredData.length === 0 ? (
 						<tr>
-							<td className='p-4' colSpan={7}>
+							<td className='p-4' colSpan={5}>
 								<div className='flex flex-col items-center justify-center gap-2'>
 									<Typography
 										variant='small'

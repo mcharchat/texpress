@@ -166,7 +166,7 @@ export default function CategoriesBody({
 						))
 					) : filteredData.length === 0 ? (
 						<tr>
-							<td className='p-4' colSpan={7}>
+							<td className='p-4' colSpan={6}>
 								<div className='flex flex-col items-center justify-center gap-2'>
 									<Typography
 										variant='small'
