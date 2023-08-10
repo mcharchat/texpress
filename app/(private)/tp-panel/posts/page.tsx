@@ -32,7 +32,7 @@ export default function Page() {
 			value: "archived",
 		},
 		{
-			label: "Trash",
+			label: "Trashed",
 			value: "trashed",
 		},
 	]);
