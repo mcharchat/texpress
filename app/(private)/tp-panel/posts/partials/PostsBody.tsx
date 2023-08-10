@@ -180,7 +180,7 @@ export default function PostsBody({
 									<Skeleton />
 								</td>
 								<td className='p-4'>
-									<Skeleton count={2} />
+									<Skeleton count={3} />
 								</td>
 								<td className='p-4'>
 									<Skeleton />
