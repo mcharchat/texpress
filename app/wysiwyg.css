@@ -11,3 +11,8 @@
     border-width: 1px !important;
     border-top: none !important;
 }
+
+b,
+strong {
+    font-weight: bold !important;
+}
