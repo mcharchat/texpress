@@ -70,6 +70,7 @@ export async function DELETE(
 			_id,
 			{
 				state: "trashed",
+				stateChangedAt: new Date(),
 			},
 			{ new: true }
 		);
