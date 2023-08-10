@@ -22,6 +22,12 @@ export class Comment {
 	@prop({ required: true })
 	content!: string;
 
+	@prop({ required: true })
+	state!: string;
+
+	@prop({ required: true })
+	stateChangedAt!: Date;
+
 	@prop()
 	authorName?: string;
 

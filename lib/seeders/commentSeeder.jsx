@@ -11,6 +11,8 @@ export const commentSeeder = async (number) => {
 	//get all the posts
 	const posts = await PostModel.find({});
 
+	const stateList = ["approved", "pending", "spam", "trashed"];
+
 	const comments = [];
 	for (let i = 0; i < number; i++) {
 		const userAuthor =
@@ -24,6 +26,8 @@ export const commentSeeder = async (number) => {
 			authorEmail: userAuthor ? null : faker.internet.email(),
 			post: posts[Math.floor(Math.random() * posts.length)]._id,
 			parent: null,
+			state: stateList[Math.floor(Math.random() * stateList.length)],
+			stateChangedAt: faker.date.past(),
 		});
 	}
 	await CommentModel.deleteMany({});
