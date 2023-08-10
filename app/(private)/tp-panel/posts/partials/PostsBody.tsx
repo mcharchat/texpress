@@ -364,6 +364,7 @@ export default function PostsBody({
 																					src={author.img}
 																					alt={author.name}
 																					withBorder={true}
+																					color='blue'
 																					className='p-[0.0625rem]'
 																					size='xs'
 																				/>
