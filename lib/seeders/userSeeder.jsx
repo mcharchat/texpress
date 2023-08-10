@@ -19,7 +19,7 @@ export const userSeeder = async (number) => {
 			name: faker.person.firstName() + " " + faker.person.lastName(),
 			email: faker.internet.email(),
 			password: bcrypt.hashSync(process.env.TEST_USER_PASSWORD, 10),
-			role: Math.floor(Math.random() * [0, 1, 2, 3, 4, 5].length),
+			role: Math.floor(Math.random() * rolesDict.length),
 			img: faker.image.url(),
 		});
 	}
