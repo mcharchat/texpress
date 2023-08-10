@@ -61,6 +61,18 @@ export async function DELETE(
 		);
 	}
 
+	if (
+		comment.moderationAgent &&
+		comment.moderationAgent.toString() !== user.id
+	) {
+		return NextResponse.json(
+			{
+				error: "You are not allowed to edit this comment",
+			},
+			{ status: 403 }
+		);
+	}
+
 	if (comment.state === "trashed") {
 		// delete comment
 		await CommentModel.findByIdAndDelete(_id);
@@ -70,6 +82,8 @@ export async function DELETE(
 			_id,
 			{
 				state: "trashed",
+				moderationAgent: user.id,
+				stateChangedAt: new Date(),
 			},
 			{ new: true }
 		);
@@ -150,9 +164,22 @@ export async function PUT(
 	await dbConnect();
 
 	const oldComment = await CommentModel.findById(params._id);
-	// manipulate body to flatten categories and tags to their ids
+
+	if (
+		oldComment.moderationAgent &&
+		oldComment.moderationAgent.toString() !== user.id
+	) {
+		return NextResponse.json(
+			{
+				error: "You are not allowed to edit this comment",
+			},
+			{ status: 403 }
+		);
+	}
+
 	const commentData = {
 		...body,
+		moderationAgent: user.id,
 		updatedAt: new Date(),
 		stateChangedAt:
 			oldComment.state !== body.state ? new Date() : oldComment.stateChangedAt,
