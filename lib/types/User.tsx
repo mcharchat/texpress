@@ -1,4 +1,4 @@
-export default interface Author {
+export default interface User {
 	_id: string;
 	id: string;
 	img: string;

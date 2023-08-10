@@ -4,7 +4,7 @@ import { useState, useEffect, useRef, useMemo } from "react";
 import { toast } from "react-toastify";
 import PostsFooter from "./partials/PostsFooter";
 import PostsHeader from "./partials/PostsHeader";
-import TableRow from "@/lib/types/TableRow";
+import TableRow from "@/lib/types/Post";
 import PostsBody from "./partials/PostsBody";
 import Transition from "@/app/Transition";
 import encryptTimestamp from "@/lib/utils/encryptTimestamp";

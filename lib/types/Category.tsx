@@ -1,3 +1,4 @@
+import Post from "@/lib/types/Post";
 export default interface Category {
 	_id: string;
 	id: string;
@@ -5,12 +6,5 @@ export default interface Category {
 	slug: string;
 	description: string;
 	parent: this | null;
-	posts:
-		| {
-				_id: string;
-				id: string;
-				title: string;
-				slug: string;
-		  }[]
-		| null;
+	posts: Post[] | null;
 }

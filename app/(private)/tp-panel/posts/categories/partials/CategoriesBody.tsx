@@ -69,9 +69,9 @@ export default function CategoriesBody({
 	handleopenDeleteCategoryDialog: () => void;
 	handleopenEditCategoryDialog: () => void;
 	handleopenCreateCategoryDialog: () => void;
-	createCategory: (categoryData: any) => void;
+	createCategory: (categoryData: TableRow) => void;
 	deleteCategory: (id: string | null) => void;
-	editCategory: (categoryData: any) => void;
+	editCategory: (categoryData: TableRow) => void;
 	selectedCategoryId: string | null;
 	loading: boolean;
 	allCategories: TableRow[];
@@ -110,14 +110,16 @@ export default function CategoriesBody({
 												if (sortField === tableHeadDict[head]) {
 													if (sortDirection === "asc") {
 														return (
-															<Icon icon="heroicons:chevron-up"
+															<Icon
+																icon='heroicons:chevron-up'
 																strokeWidth={2}
 																className='h-4 w-4'
 															/>
 														);
 													} else {
 														return (
-															<Icon icon="heroicons:chevron-down"
+															<Icon
+																icon='heroicons:chevron-down'
 																strokeWidth={2}
 																className='h-4 w-4'
 															/>
@@ -125,7 +127,8 @@ export default function CategoriesBody({
 													}
 												} else {
 													return (
-														<Icon icon="heroicons:chevron-up-down"
+														<Icon
+															icon='heroicons:chevron-up-down'
 															strokeWidth={2}
 															className='h-4 w-4'
 														/>
@@ -151,7 +154,7 @@ export default function CategoriesBody({
 									<Skeleton />
 								</td>
 								<td className='p-4'>
-									<Skeleton count={3}/>
+									<Skeleton count={3} />
 								</td>
 								<td className='p-4'>
 									<Skeleton />
@@ -300,7 +303,10 @@ export default function CategoriesBody({
 															});
 														}}
 													>
-														<Icon icon="heroicons:pencil-solid" className='h-4 w-4' />
+														<Icon
+															icon='heroicons:pencil-solid'
+															className='h-4 w-4'
+														/>
 													</IconButton>
 												</Tooltip>
 												<Tooltip content='Delete category'>
@@ -314,13 +320,19 @@ export default function CategoriesBody({
 															});
 														}}
 													>
-														<Icon icon="heroicons:trash-solid" className='h-4 w-4' />
+														<Icon
+															icon='heroicons:trash-solid'
+															className='h-4 w-4'
+														/>
 													</IconButton>
 												</Tooltip>
 												<Tooltip content='View category'>
 													<Link href={`/categories/${slug}`}>
 														<IconButton variant='text' color='blue-gray'>
-															<Icon icon="heroicons:magnifying-glass" className='h-4 w-4' />
+															<Icon
+																icon='heroicons:magnifying-glass'
+																className='h-4 w-4'
+															/>
 														</IconButton>
 													</Link>
 												</Tooltip>

@@ -14,7 +14,7 @@ import {
 	Typography,
 } from "@material-tailwind/react";
 import MenuWithCheckbox from "./MenuWithCheckbox";
-import TableRow from "@/lib/types/TableRow";
+import TableRow from "@/lib/types/Post";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import { toast } from "react-toastify";
@@ -409,7 +409,8 @@ export default function EditPostDialog({
 									}}
 									disabled={generating.slug}
 								>
-									<Icon icon="heroicons:arrow-path"
+									<Icon
+										icon='heroicons:arrow-path'
 										className={`h-3 w-3 transition-all hover:rotate-[720deg] ease-in-out duration-1000 ${
 											generating.slug ? "animate-spin" : ""
 										}`}

@@ -72,7 +72,7 @@ export default function CommentsBody({
 	handleopenDeleteCommentDialog: () => void;
 	handleopenEditCommentDialog: () => void;
 	deleteComment: (id: string | null, state: string) => void;
-	editComment: (commentData: any) => void;
+	editComment: (commentData: TableRow) => void;
 	selectedCommentId: string | null;
 	loading: boolean;
 	tabsValue: string;

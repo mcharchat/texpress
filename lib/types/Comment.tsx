@@ -1,5 +1,5 @@
-import Author from "./Author";
-import PostData from "./PostData";
+import User from "@/lib/types/User";
+import Post from "@/lib/types/Post";
 
 export default interface Comment {
 	_id: string;
@@ -7,12 +7,12 @@ export default interface Comment {
 	content: string;
 	createdAt: string;
 	updatedAt: string;
-	author: Author | null;
+	author: User | null;
 	authorName: string;
 	authorEmail: string;
-	post: PostData | null;
+	post: Post | null;
 	state: string;
 	parent: this | null;
-	moderationAgent: Author | null;
+	moderationAgent: User | null;
 	stateChangedAt: string;
 }

@@ -71,9 +71,9 @@ export default function TagsBody({
 	handleopenDeleteTagDialog: () => void;
 	handleopenEditTagDialog: () => void;
 	handleopenCreateTagDialog: () => void;
-	createTag: (tagData: any) => void;
+	createTag: (tagData: TableRow) => void;
 	deleteTag: (id: string | null) => void;
-	editTag: (tagData: any) => void;
+	editTag: (tagData: TableRow) => void;
 	selectedTagId: string | null;
 	loading: boolean;
 	allCollors: string[];

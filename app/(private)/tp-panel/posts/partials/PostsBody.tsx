@@ -8,7 +8,8 @@ import {
 } from "@material-tailwind/react";
 import Link from "next/link";
 import { colors } from "@material-tailwind/react/types/generic";
-import TableRow from "@/lib/types/TableRow";
+import TableRow from "@/lib/types/Post";
+import PostData from "@/lib/types/PostData";
 import { Dispatch, SetStateAction, useContext } from "react";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
@@ -80,9 +81,9 @@ export default function PostsBody({
 	handleopenDeletePostDialog: () => void;
 	handleopenEditPostDialog: () => void;
 	handleopenCreatePostDialog: () => void;
-	createPost: (postData: any) => void;
+	createPost: (postData: PostData) => void;
 	deletePost: (id: string | null, state: string) => void;
-	editPost: (postData: any) => void;
+	editPost: (postData: PostData) => void;
 	selectedPostId: string | null;
 	categories: Category[];
 	tags: Tag[];
@@ -125,14 +126,16 @@ export default function PostsBody({
 												if (sortField === tableHeadDict[head]) {
 													if (sortDirection === "asc") {
 														return (
-															<Icon icon="heroicons:chevron-up"
+															<Icon
+																icon='heroicons:chevron-up'
 																strokeWidth={2}
 																className='h-4 w-4'
 															/>
 														);
 													} else {
 														return (
-															<Icon icon="heroicons:chevron-down"
+															<Icon
+																icon='heroicons:chevron-down'
 																strokeWidth={2}
 																className='h-4 w-4'
 															/>
@@ -140,7 +143,8 @@ export default function PostsBody({
 													}
 												} else {
 													return (
-														<Icon icon="heroicons:chevron-up-down"
+														<Icon
+															icon='heroicons:chevron-up-down'
 															strokeWidth={2}
 															className='h-4 w-4'
 														/>
