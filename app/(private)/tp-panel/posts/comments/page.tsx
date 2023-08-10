@@ -309,7 +309,7 @@ export default function Page() {
 		toast.success(
 			`
 			The comment 
-			"${commentDetails?.content}"
+			"${commentDetails?.content.replace(/<[^>]*>/g, "")}"
 			has been ${
 				state === "trashed" ? "removed permanently" : "trashed"
 			} successfully!
@@ -354,7 +354,7 @@ export default function Page() {
 		toast.success(
 			`
 			The comment
-			"${commentDetails.content}"
+			"${commentDetails.content.replace(/<[^>]*>/g, "")}"
 			has been edited successfully!
 		`
 		);
