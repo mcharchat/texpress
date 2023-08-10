@@ -150,7 +150,7 @@ export default function TagsBody({
 									<Skeleton />
 								</td>
 								<td className='p-4'>
-									<Skeleton />
+									<Skeleton count={3}/>
 								</td>
 								<td className='p-4'>
 									<Skeleton />

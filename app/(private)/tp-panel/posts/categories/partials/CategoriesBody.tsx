@@ -151,7 +151,7 @@ export default function CategoriesBody({
 									<Skeleton />
 								</td>
 								<td className='p-4'>
-									<Skeleton />
+									<Skeleton count={3}/>
 								</td>
 								<td className='p-4'>
 									<Skeleton />
