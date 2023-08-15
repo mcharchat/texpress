@@ -99,7 +99,7 @@ export default function EditTagDialog({
 		>
 			<DialogHeader>
 				<Typography variant='h6' weight='bold' color='blue-gray'>
-					Edit post
+					Edit tag
 				</Typography>
 			</DialogHeader>
 			<DialogBody

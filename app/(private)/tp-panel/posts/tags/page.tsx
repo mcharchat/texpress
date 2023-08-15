@@ -16,7 +16,7 @@ export default function Page() {
 		"Name",
 		"Description",
 		"Slug",
-		"Count",
+		"Posts",
 		"",
 	]);
 
@@ -26,7 +26,7 @@ export default function Page() {
 		Name: "name",
 		Description: "description",
 		Slug: "slug",
-		Count: "posts",
+		Posts: "posts",
 	};
 
 	const [tableRows, setTableRows] = useState<Tag[]>([]);

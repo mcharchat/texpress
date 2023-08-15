@@ -96,7 +96,7 @@ export default function CreateCategoryDialog({
 		>
 			<DialogHeader>
 				<Typography variant='h6' weight='bold' color='blue-gray'>
-					New post
+					New category
 				</Typography>
 			</DialogHeader>
 			<DialogBody

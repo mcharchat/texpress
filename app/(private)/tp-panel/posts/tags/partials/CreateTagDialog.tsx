@@ -96,7 +96,7 @@ export default function CreateTagDialog({
 		>
 			<DialogHeader>
 				<Typography variant='h6' weight='bold' color='blue-gray'>
-					New post
+					New tag
 				</Typography>
 			</DialogHeader>
 			<DialogBody

@@ -97,7 +97,7 @@ export default function EditCategoryDialog({
 		>
 			<DialogHeader>
 				<Typography variant='h6' weight='bold' color='blue-gray'>
-					Edit post
+					Edit category
 				</Typography>
 			</DialogHeader>
 			<DialogBody

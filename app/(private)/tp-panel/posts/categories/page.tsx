@@ -17,7 +17,7 @@ export default function Page() {
 		"Parent",
 		"Description",
 		"Slug",
-		"Count",
+		"Posts",
 		"",
 	]);
 
@@ -28,7 +28,7 @@ export default function Page() {
 		Parent: "parent.name",
 		Description: "description",
 		Slug: "slug",
-		Count: "posts",
+		Posts: "posts",
 	};
 
 	const [tableRows, setTableRows] = useState<Category[]>([]);
