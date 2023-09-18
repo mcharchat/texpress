@@ -3,6 +3,7 @@ interface CreateUserBody {
 	name: string;
 	email: string;
 	password: string;
+	[key: string]: string;
 }
 export async function validateRequestBodyRequiredFields(
 	body: CreateUserBody,
