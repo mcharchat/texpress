@@ -1,3 +1,4 @@
+"use client";
 import {
 	Button,
 	CardHeader,
@@ -37,6 +38,14 @@ export default function PostsHeader({
 	setopenCreatePostDialog: Dispatch<SetStateAction<boolean>>;
 	loading: boolean;
 }) {
+	const viewAll = () => {
+		setInputElement("");
+		setSelectedPage(0);
+		const element = document.getElementById("all-tab");
+		if (element) {
+			element.click();
+		}
+	};
 	return (
 		<CardHeader
 			floated={false}
@@ -57,14 +66,7 @@ export default function PostsHeader({
 						variant='outlined'
 						color='blue-gray'
 						size='sm'
-						onClick={() => {
-							setInputElement("");
-							setSelectedPage(0);
-							const element = document.getElementById("all-tab");
-							if (element) {
-								element.click();
-							}
-						}}
+						onClick={viewAll}
 					>
 						view all
 					</Button>
@@ -77,7 +79,12 @@ export default function PostsHeader({
 						}}
 						disabled={loading}
 					>
-						<Icon icon="heroicons:plus-solid" strokeWidth={2} className='h-4 w-4' /> Add new
+						<Icon
+							icon='heroicons:plus-solid'
+							strokeWidth={2}
+							className='h-4 w-4'
+						/>{" "}
+						Add new
 					</Button>
 				</div>
 			</div>

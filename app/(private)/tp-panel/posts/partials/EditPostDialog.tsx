@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useEffect, useState } from "react";
 import {
 	Button,
@@ -15,7 +17,6 @@ import {
 } from "@material-tailwind/react";
 import MenuWithCheckbox from "./MenuWithCheckbox";
 import TableRow from "@/lib/types/Post";
-import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import { toast } from "react-toastify";
 import Tag from "@/lib/types/Tag";
@@ -23,6 +24,9 @@ import Category from "@/lib/types/Category";
 import PostData from "@/lib/types/PostData";
 import encryptTimestamp from "@/lib/utils/encryptTimestamp";
 import { Icon } from "@iconify/react";
+import dynamic from "next/dynamic";
+
+const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
 export default function EditPostDialog({
 	openEditPostDialog,

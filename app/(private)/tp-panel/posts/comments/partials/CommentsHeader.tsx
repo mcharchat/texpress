@@ -1,3 +1,4 @@
+"use client";
 import {
 	Button,
 	CardHeader,
@@ -33,6 +34,14 @@ export default function PostsHeader({
 		value: string;
 	}[];
 }) {
+	const viewAll = () => {
+		setInputElement("");
+		setSelectedPage(0);
+		const element = document.getElementById("all-tab");
+		if (element) {
+			element.click();
+		}
+	};
 	return (
 		<CardHeader
 			floated={false}
@@ -53,14 +62,7 @@ export default function PostsHeader({
 						variant='outlined'
 						color='blue-gray'
 						size='sm'
-						onClick={() => {
-							setInputElement("");
-							setSelectedPage(0);
-							const element = document.getElementById("all-tab");
-							if (element) {
-								element.click();
-							}
-						}}
+						onClick={viewAll}
 					>
 						view all
 					</Button>
