@@ -31,10 +31,6 @@ export const commentSeeder = async (number) => {
 		});
 	}
 	await CommentModel.deleteMany({});
-	console.log(
-		"🚀 ~ file: commentSeeder.jsx:25 ~ commentSeeder ~ comments:",
-		comments
-	);
 	await CommentModel.insertMany(comments);
 	return console.log(number + " comments seeded");
 };
