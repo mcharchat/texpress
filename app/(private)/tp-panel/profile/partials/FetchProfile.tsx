@@ -14,7 +14,7 @@ export default async function FetchProfile() {
 	await dbConnect();
 	const findUser = await UserModel.findById(id);
 	return JSON.stringify({
-		id: findUser._id,
+		id: findUser.id,
 		email: findUser.email,
 		name: findUser.name,
 		role: findUser.role,
